@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>module</type>
+		<description>Language labels for plugin tx_rscal_pi1</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<!-- Plugin -->
+			<label index="tt_content.list_type">RSCalendar PI01: Calendar</label>
+			
+			<!-- Flexforms -->
+			<label index="flexform.mode">Mode</label>
+			<label index="flexform.mode.0">Calendar</label>
+
+			<!-- Plugin -->			
+			<label index="l_create">New Event</label>
+			<label index="l_title">Title</label>
+			<label index="l_category">Category</label>
+			<label index="l_location">Location</label>
+			<label index="l_startdate">Start</label>
+			<label index="l_enddate">End</label>
+			<label index="l_bodytext">Text</label>
+			<label index="l_allday">All Day Event</label>
+			<label index="l_repeat">Repeats</label>
+			
+		</languageKey>
+		
+		<languageKey index="de" type="array">
+			<!-- Plugin -->			
+			<label index="l_create">Neuer Termin</label>
+			<label index="l_title">Titel</label>
+			<label index="l_category">Kategorie</label>
+			<label index="l_location">Ort</label>
+			<label index="l_startdate">Beginn</label>
+			<label index="l_enddate">Ende</label>
+			<label index="l_bodytext">Text</label>
+			<label index="l_allday">Ganztägig</label>
+			<label index="l_repeat">Wiederholung</label>
+		</languageKey>
+	</data>
+</T3locallang>
