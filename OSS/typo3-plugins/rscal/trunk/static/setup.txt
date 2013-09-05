@@ -1,0 +1,189 @@
+plugin.tx_rscal < plugin.tx_rsextbase
+plugin.tx_rscal {
+	config {
+		storagePid = {$plugin.tx_rscal.storagePid}
+		createEventClass = EXT:rscal/res/class.tx_rscal_create_event.php:&tx_rscal_create_event
+		viewEventClass = EXT:rscal/res/class.tx_rscal_view_event.php:&tx_rscal_view_event
+		editEventClass = EXT:rscal/res/class.tx_rscal_edit_event.php:&tx_rscal_edit_event
+		deleteEventClass = EXT:rscal/res/class.tx_rscal_delete_event.php:&tx_rscal_delete_event
+		viewDayClass = EXT:rscal/res/class.tx_rscal_view_day.php:&tx_rscal_view_day
+		viewWeekClass = EXT:rscal/res/class.tx_rscal_view_week.php:&tx_rscal_view_week
+		viewMonthClass = EXT:rscal/res/class.tx_rscal_view_month.php:&tx_rscal_view_month
+		viewYearClass = EXT:rscal/res/class.tx_rscal_view_year.php:&tx_rscal_view_year
+	}
+	
+	default {
+		edit_link = IMAGE
+		edit_link {
+			file = EXT:rscal/res/icons/edit.gif
+			stdWrap.typolink {
+				parameter.data = TSFE:id
+				additionalParams {
+					field = uid
+					wrap = &tx_rscal_pi1[action]=edit&tx_rscal_pi1[event]=|
+				}
+				title = Edit
+				title.lang.de = Bearbeiten
+			}
+			if.isTrue.field = canEdit
+		}
+		delete_link = IMAGE
+		delete_link {
+			file = EXT:rscal/res/icons/delete.gif
+			stdWrap.typolink {
+				parameter.data = TSFE:id
+				additionalParams {
+					field = uid
+					wrap = &tx_rscal_pi1[action]=delete&tx_rscal_pi1[event]=|
+				}
+				title = Delete
+				title.lang.de = L&ouml;schen
+			}
+			if.isTrue.field = canEdit
+		}
+		form_category < plugin.tx_rscal.default.form_select
+		form_category {
+			table {
+				name = tx_rscal_categories
+				pidInList = {$plugin.tx_rscal.storagePid}
+				where = deleted=0 AND hidden=0
+				orderBy = title
+				valueField = uid
+			}
+		}
+	}
+}
+
+
+plugin.tx_rscal_pi1 {
+	config < plugin.tx_rscal.config
+	default < plugin.tx_rscal.default
+
+	month_single {
+		previous = IMAGE
+		previous {
+			file = EXT:rscal/res/icons/left_day.gif
+			stdWrap.typolink {
+				parameter.data = TSFE:id
+				additionalParams {
+				}
+				title = Previous Month
+				title.lang.de = Vorheriger Monat
+			}
+		}
+		next = IMAGE
+		next {
+			file = EXT:rscal/res/icons/right_day.gif
+			stdWrap.typolink {
+				parameter.data = TSFE:id
+				additionalParams {
+				}
+				title = Next Month
+				title.lang.de = N&auml;chster Monat
+			}
+		}
+		month = TEXT
+		month {
+			field = beginPeriod
+			strftime = %B
+		}
+	}
+	
+	month_week {
+	}
+	
+	month_weekday {
+		new_link = IMAGE
+		new_link {
+			file = EXT:rscal/res/icons/add_small.png
+			stdWrap.typolink {
+				addQueryString {
+					exclude = id
+				}
+				parameter.data = TSFE:id
+				additionalParams {
+					field = time
+					wrap = &tx_rscal_pi1[action]=create&tx_rscal_pi1[time]=|
+				}
+				title = Create new event
+				title.lang.de = Neuer Termin
+			}
+			if.isTrue.field = canEdit
+		}
+	}
+
+	month_allday {
+	}
+	
+	month_event {
+		type {
+			event_start = time
+			edit = edit_link
+			delete = delete_link
+		}
+		
+		title = CASE
+		title {
+			key.field = allday
+			0 = COA
+			0 {
+				10 < plugin.tx_rscal_pi1.default.time
+				10.field = event_start
+				20 = TEXT
+				20.value = :&nbsp;
+				30 < plugin.tx_rscal_pi1.default.plain
+			}
+			default < plugin.tx_rscal_pi1.default.plain
+			
+			stdWrap.typolink {
+				parameter.data = TSFE:id
+				additionalParams {
+					field = uid
+					wrap = &tx_rscal_pi1[event]=|
+				}
+				title.field = title
+			}
+		}
+	}
+	
+	event_view {
+		type {
+			edit = edit_link
+			delete = delete_link
+			event_start = datetime
+			event_end = time
+			bodytext = text
+		}
+		
+		event_start = CASE
+		event_start {
+			key.field = allday
+			0 < plugin.tx_rscal_pi1.default.datetime
+			default < plugin.tx_rscal_pi1.default.date
+		}
+
+		event_end = CASE
+		event_end {
+			key.field = allday
+			0 < plugin.tx_rscal_pi1.default.time
+			0.wrap = -&nbsp;|
+			default = TEXT
+		}
+		
+	}
+	
+	event_create {
+		type {
+			title = form_input
+			location = form_input
+			category = form_category
+			allday = form_checkbox
+			startdate = form_date
+			starttime = form_time
+			enddate = form_date
+			endtime = form_time
+			bodytext = tinymce
+		}
+		
+	}
+}

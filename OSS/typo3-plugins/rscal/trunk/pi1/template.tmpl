@@ -1,0 +1,113 @@
+#####################################################################################################
+# MONTH VIEW
+#####################################################################################################
+<!-- ###MONTH_VIEW### begin -->
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="navback">
+			###PREVIOUS###
+		</td>
+		<td align="center" width="170" class="title" nowrap="nowrap" valign="middle">
+			<h1>###MONTH###</h1>
+		</td>
+		<td align="left" class="navback">
+			###NEXT###
+		</td>
+		<td align="left" class="navback">
+		</td>
+	</tr>
+</table>
+
+<table class="month-large">
+	<tr>
+		<th class="weekday###ADDITIONAL_CLASSES###">&nbsp;</th>
+		
+		<!-- ###LOOP_WEEKDAYS### begin -->
+		<th class="weekday###ADDITIONAL_CLASSES###">###WEEKDAY###</th>
+		<!-- ###LOOP_WEEKDAYS### end -->
+	</tr>
+	
+	<!-- ###LOOP_WEEKS### begin -->
+	<tr>
+		<!-- ###WEEK_NUM### begin -->
+		<th class="###STYLE###">###WEEK_NUM###</th>
+		<!-- ###WEEK_NUM### end -->
+	
+		<!-- ###LOOP_WEEKDAYS### begin -->
+		<td class="###STYLE### day">
+			<div>###NEW_LINK######MDAY###</div>
+			<!-- ###ALL_DAY### begin -->
+				<div class="V9">
+					<span class="green_catheader_text">###TITLE### ###EDIT### ###DELETE###</span>
+				</div>
+			<!-- ###ALL_DAY### end -->
+			<!-- ###EVENT### begin -->
+				<div class="V9">
+					<span class="green_catheader_text">###TITLE### ###EDIT### ###DELETE###</span>
+				</div>
+			<!-- ###EVENT### end -->
+		</td>
+		<!-- ###LOOP_WEEKDAYS### end -->
+	</tr>
+	<!-- ###LOOP_WEEKS### end -->
+</table>
+<!-- ###MONTH_VIEW### end -->
+
+#####################################################################################################
+# EVENT VIEW
+#####################################################################################################
+<!-- ###EVENT_VIEW### begin -->
+<div class="event-display">
+	<div class="title">###CATEGORY### ###TITLE### ###EDIT### ###DELETE###</div>
+	<div class="datetime">###EVENT_START### ###EVENT_END###</div>
+	<div class="location">###LOCATION###</div>
+	<!-- ###SERIES### begin -->
+	<div class="series">
+	</div>
+	<!-- ###SERIES### end -->
+	<div class="desc"><p class="bodytext">###BODYTEXT###</p></div>
+</div>
+<!-- ###EVENT_VIEW### end -->
+
+#####################################################################################################
+# EVENT CREATE
+#####################################################################################################
+<!-- ###EVENT_CREATE### begin -->
+<h1>###L_CREATE###</h1>
+<table>
+	<tr>
+		<th>###L_TITLE###:</th>
+		<td>###TITLE###</td>
+	</tr>
+	<tr>
+		<th>###L_CATEGORY###:</th>
+		<td>###CATEGORY###</td>
+	</tr>
+	<tr>
+		<th>###L_LOCATION###:</th>
+		<td>###LOCATION###</td>
+	</tr>
+	<tr>
+		<th>&nbsp;</th>
+		<td>###ALLDAY###</td>
+	</tr>
+	<tr>
+		<th>###L_STARTDATE###:</th>
+		<td>###STARTDATE### ###STARTTIME###</td>
+	</tr>
+	<tr>
+		<th>###L_ENDDATE###:</th>
+		<td>###ENDDATE### ###ENDTIME###</td>
+	</tr>
+	<tr>
+		<th>###L_REPEAT###:</th>
+		<td>###REPEAT###</td>
+	</tr>
+	<tr>
+		<th colspan="2">###L_BODYTEXT###:</th>
+	</tr>
+	<tr>
+		<td colspan="2">###BODYTEXT###</td>
+	</tr>
+</table>
+<!-- ###EVENT_CREATE### end -->
