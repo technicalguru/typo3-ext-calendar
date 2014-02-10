@@ -63,7 +63,7 @@ class tx_rscal_database extends tx_rsextbase_database {
 	 */
 	function getEvents($whereClause) {
 		$rc = array();
-		$where = "pid=".$this->pi->config['storagePid'];
+		$where = "pid=".$this->config['storagePid'];
 		if ($whereClause) $where .= " AND $whereClause";
 		$where .= " AND hidden=0 AND deleted=0";
 		$events = $this->getRecords('tx_rscal_events', $where);
@@ -75,12 +75,12 @@ class tx_rscal_database extends tx_rsextbase_database {
 				$item['series_category'] = $this->getCategory($item['series']['category']);
 				$item['event_category'] = $this->getCategory($item['combined']['category']);
 				$tmp = $item['combined'];
-				$this->pi->addArray($tmp, 'category', $item['event_category']);
+				tx_rsextbase_pibase::addArray($tmp, 'category', $item['event_category']);
 				$item['rendering'] = $tmp;
 			} else {
 				$item['event_category'] = $this->getCategory($event['category']);
 				$tmp = $item['event'];
-				$this->pi->addArray($tmp, 'category', $item['event_category']);
+				tx_rsextbase_pibase::addArray($tmp, 'category', $item['event_category']);
 				$item['rendering'] = $tmp;
 			}
 			$rc[] = $item;
