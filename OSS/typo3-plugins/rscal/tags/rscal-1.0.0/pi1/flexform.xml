@@ -1,0 +1,32 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:rscal/locallang.xml:flexform.general.title</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+					<mode>
+						<TCEforms>
+							<label>LLL:EXT:rscal/pi1/locallang.xml:flexform.mode</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">LLL:EXT:rscal/pi1/locallang.xml:flexform.mode.0</numIndex>
+										<numIndex index="1">CALENDAR</numIndex>
+									</numIndex>
+               					</items>
+							</config>
+						</TCEforms>
+					</mode>
+
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

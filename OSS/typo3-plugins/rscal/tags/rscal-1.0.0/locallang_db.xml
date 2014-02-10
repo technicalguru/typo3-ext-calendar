@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'jrt'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_rscal_categories">RS Calendar Categories</label>
+			<label index="tx_rscal_categories.title">Category Title</label>
+			<label index="tx_rscal_categories.image">Category Image</label>
+			<label index="tx_rscal_series">RS Calendar Series</label>
+			<label index="tx_rscal_series.title">Series Title</label>
+			<label index="tx_rscal_series.category">Category</label>
+			<label index="tx_rscal_series.location">Location</label>
+			<label index="tx_rscal_series.bodytext">Text</label>
+			<label index="tx_rscal_series.repeat_start">Date of first occurence</label>
+			<label index="tx_rscal_series.repeat_end">Info abou last occurence (depending on recurring type)</label>
+			<label index="tx_rscal_series.time_start">Start Time in seconds from midnight</label>
+			<label index="tx_rscal_series.time_length">Duration of event in seconds</label>
+			<label index="tx_rscal_series.repeat_type">Type of Recurrence</label>
+			<label index="tx_rscal_series.repeat_info">Recurrence information</label>
+			<label index="tx_rscal_events">RS Calendar Events</label>
+			<label index="tx_rscal_events.series">Series this event belongs to</label>
+			<label index="tx_rscal_events.series_number">Internal Series counter</label>
+			<label index="tx_rscal_events.title">Event Title (overrides Series title)</label>
+			<label index="tx_rscal_events.category">Event Category (overrides Series category)</label>
+			<label index="tx_rscal_events.location">Event Location (overrides Series location)</label>
+			<label index="tx_rscal_events.bodytext">Event Text (overrides Series text)</label>
+			<label index="tx_rscal_events.event_start">Start Time</label>
+			<label index="tx_rscal_events.event_end">End Time</label>
+		</languageKey>
+	</data>
+</T3locallang>
