@@ -25,7 +25,7 @@ class tx_rscal_view_base extends tx_rsextbase_pibase {
 	 */
 	function createDatabaseObject() {
 		$this->db = t3lib_div::makeInstance('tx_rscal_database');
-		$this->db->init($this);
+		$this->db->init($this->config);
 	}
 	
 	function canEdit($event) {
